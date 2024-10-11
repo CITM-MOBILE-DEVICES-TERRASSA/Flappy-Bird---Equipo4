@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public static event Action OnPlayerDeath;
     public static event Action OnPointObtained;
 
+    public AudioSource audioSource;
+
     private Rigidbody2D rb;
 
     private Renderer visual;
@@ -68,6 +70,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         GameOver(); 
+        audioSource.Play();
     }
 
     void GameOver()
