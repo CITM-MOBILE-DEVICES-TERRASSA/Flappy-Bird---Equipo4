@@ -431,6 +431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pipe: {fileID: 211241492071094765, guid: 43e0e137e1bbdb54e820695fbc8ae453, type: 3}
+  pipePortals: {fileID: 4686595305741306996, guid: b3cdbf593a90f2649aefeb8327dbdcad, type: 3}
   offsetX: 25
   spawnDelay: 3
 --- !u!114 &344399783

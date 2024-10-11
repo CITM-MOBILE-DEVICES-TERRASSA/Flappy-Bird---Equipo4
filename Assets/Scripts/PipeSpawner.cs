@@ -1,13 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class PipeSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject pipe;
+    [SerializeField] private GameObject pipePortals; // Asegurate de que tenga el componente correcto!
     
     [SerializeField] private float offsetX;
     
@@ -35,7 +32,22 @@ public class PipeSpawner : MonoBehaviour
         if (pipe)
         {
             float y = Random.Range(-2.0f, 2.0f);
-            Instantiate(pipe, new Vector3(offsetX, y, 0), Quaternion.identity);
+            Vector3 pos = new Vector3(offsetX, y, 0);
+            // Instantiate(pipe, pos, Quaternion.identity);
+
+            PipeBuilder pipeBuilder = new PipeBuilder(pipe, pos);
+
+            if (Random.Range(0, 2) == 1)
+            {
+                pipeBuilder.AddOscillator(0, 0);
+            }
+            if (Random.Range(0, 2) == 1)
+            {
+                pipeBuilder.AddPortals(pipePortals);
+            }
+
+            pipeBuilder.Build();
+
         }
     }
 }
