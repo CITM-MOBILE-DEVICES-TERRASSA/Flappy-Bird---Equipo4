@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource audioSource;
 
+    public AudioClip audioClip; 
+    private AudioSource audioJump;
+
     private Rigidbody2D rb;
 
     private Renderer visual;
@@ -51,6 +54,9 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(0, impulse);
             buttonDown = false;
+            audioJump = gameObject.AddComponent<AudioSource>();
+            audioJump.clip = audioClip; // Asigna el clip de audio
+            audioJump.Play(); 
         }
 
         if (visual)

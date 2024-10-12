@@ -1156,7 +1156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impulse: 5
   rotationPower: 2
-  audioSource: {fileID: 885658356}
+  audioSource: {fileID: 2059399232}
+  audioClip: {fileID: 8300000, guid: dcd404343d51d074aacdd9fe49ddac99, type: 3}
 --- !u!50 &1248861575
 Rigidbody2D:
   serializedVersion: 4
