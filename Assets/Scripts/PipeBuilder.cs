@@ -37,7 +37,9 @@
 
         public PipeBuilder AddPortals(GameObject prefab)
         {
-            Object.Destroy(instancedPipe.GetComponent<PipePortalManager>().gameObject);
+            PipePortalManager existing = instancedPipe.GetComponent<PipePortalManager>();
+            if (existing != null)
+                Object.Destroy(instancedPipe.GetComponent<PipePortalManager>().gameObject);
             Object.Instantiate(prefab, instancedPipe.transform);
             
             return this;

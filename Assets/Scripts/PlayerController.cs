@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,12 +12,12 @@ public class PlayerController : MonoBehaviour
     
     public static event Action OnPlayerDeath;
     public static event Action OnPointObtained;
+    public static event Action OnJumpButtonDown;
 
-    public AudioSource audioSource;
-
-    public AudioClip audioClip; 
-    private AudioSource audioJump;
-
+    [SerializeField] private AudioClip deathClip;
+    private AudioSource audioDeath;
+    
+    
     private Rigidbody2D rb;
 
     private Renderer visual;
@@ -34,12 +36,22 @@ public class PlayerController : MonoBehaviour
         }
         
         visual = GetComponentInChildren<SpriteRenderer>();
+        
+        audioDeath = gameObject.AddComponent<AudioSource>();
+        audioDeath.clip = deathClip;
+        OnPlayerDeath += audioDeath.Play;
+    }
+
+    void OnDestroy()
+    {
+        OnPlayerDeath -= audioDeath.Play;
     }
 
     // Update is called once per frame
     void Update()
     {
         buttonDown |= Input.GetButtonDown("Jump");
+        
     }
 
     private void OnPostRender()
@@ -53,10 +65,8 @@ public class PlayerController : MonoBehaviour
         if (buttonDown)
         {
             rb.velocity = new Vector2(0, impulse);
+            OnJumpButtonDown?.Invoke();
             buttonDown = false;
-            audioJump = gameObject.AddComponent<AudioSource>();
-            audioJump.clip = audioClip; // Asigna el clip de audio
-            audioJump.Play(); 
         }
 
         if (visual)
@@ -76,11 +86,11 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         GameOver(); 
-        audioSource.Play();
     }
 
     void GameOver()
     {
+        audioDeath?.Play();
         OnPlayerDeath?.Invoke();
         Destroy(this); // Destroy just the player controller, bird will fall down by gravity
     }

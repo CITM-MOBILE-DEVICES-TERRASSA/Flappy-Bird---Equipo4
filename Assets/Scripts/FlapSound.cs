@@ -5,16 +5,17 @@ using UnityEngine;
 public class FlapSound : MonoBehaviour
 {
     private AudioSource _audioSource;
+    [SerializeField] private AudioClip _flapSound;
     private void Start()
     {
-        _audioSource = GetComponent<AudioSource>();
+        _audioSource = gameObject.AddComponent<AudioSource>();
+        _audioSource.clip = _flapSound;
+
+        PlayerController.OnJumpButtonDown += _audioSource.Play;
     }
 
-    private void Update()
+    void OnDestroy()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            _audioSource.Play();
-        }
+        PlayerController.OnJumpButtonDown -= _audioSource.Play;
     }
 }
