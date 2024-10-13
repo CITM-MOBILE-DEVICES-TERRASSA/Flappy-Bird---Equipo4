@@ -26,10 +26,16 @@ public class PlayerController : MonoBehaviour
     private Renderer visual;
 
     private bool buttonDown = false;
-    
+
+
+    DeathEffects deathEffects;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        deathEffects = GetComponent<DeathEffects>();
+
         rb = GetComponent<Rigidbody2D>();
         // Rigidbody2D required
         // if preconfigured rigidbody not found create a default one
@@ -96,13 +102,18 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        deathEffects.DeathEf();
         GameOver(); 
     }
 
     void GameOver()
     {
+       
         audioDeath?.Play();
         OnPlayerDeath?.Invoke();
         Destroy(this); // Destroy just the player controller, bird will fall down by gravity
     }
+
+
+
 }
