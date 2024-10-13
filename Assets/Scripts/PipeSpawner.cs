@@ -27,6 +27,7 @@ public class PipeSpawner : MonoBehaviour
     
     void OnGameOver() => CancelInvoke(nameof(SpawnPipe));
 
+    //Director
     void SpawnPipe()
     {
         if (pipe)

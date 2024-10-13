@@ -1,9 +1,10 @@
 ﻿
     using UnityEngine;
 
+    //Builder
     public class PipeBuilder
-    {
-
+    {        
+        //product
         private GameObject instancedPipe;
 
         public PipeBuilder(GameObject baseObject) : this(baseObject, Vector3.zero, Quaternion.identity) {}
