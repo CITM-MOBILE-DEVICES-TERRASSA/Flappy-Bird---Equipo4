@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     public static event Action OnJumpButtonDown;
 
     [SerializeField] private AudioClip deathClip;
+    [SerializeField] AudioClip pointSound_;
+
+    private AudioSource pointSound;
     private AudioSource audioDeath;
     
     
@@ -36,15 +39,23 @@ public class PlayerController : MonoBehaviour
         }
         
         visual = GetComponentInChildren<SpriteRenderer>();
-        
+
+        audioDeath = gameObject.AddComponent<AudioSource>();
+
         audioDeath = gameObject.AddComponent<AudioSource>();
         audioDeath.clip = deathClip;
         OnPlayerDeath += audioDeath.Play;
+
+        pointSound = gameObject.AddComponent<AudioSource>();
+        pointSound.clip = pointSound_;
+        OnPointObtained += pointSound.Play;
     }
 
     void OnDestroy()
     {
         OnPlayerDeath -= audioDeath.Play;
+
+        OnPointObtained -= pointSound.Play;
     }
 
     // Update is called once per frame

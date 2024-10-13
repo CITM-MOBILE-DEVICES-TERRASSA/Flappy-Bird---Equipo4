@@ -891,7 +891,7 @@ GameObject:
   - component: {fileID: 1052083500}
   - component: {fileID: 1052083499}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: Background Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1138,6 +1138,7 @@ MonoBehaviour:
   impulse: 5
   rotationPower: 2
   deathClip: {fileID: 8300000, guid: eaba3e993b05fd045beca20c8ffdb82c, type: 3}
+  pointSound_: {fileID: 8300000, guid: bacc0af7d688ebd4a86d2b292c1094a6, type: 3}
 --- !u!50 &1248861575
 Rigidbody2D:
   serializedVersion: 4
@@ -1213,9 +1214,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.0038812459}
+  m_Offset: {x: 0, y: -0.00970757}
   serializedVersion: 2
-  m_Radius: 0.40296802
+  m_Radius: 0.3893792
 --- !u!114 &1248861580
 MonoBehaviour:
   m_ObjectHideFlags: 0
