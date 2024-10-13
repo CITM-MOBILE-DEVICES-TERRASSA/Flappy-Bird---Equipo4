@@ -36,6 +36,7 @@
             return this;
         }
 
+        //add coinPrefab al AddPortals
         public PipeBuilder AddPortals(GameObject prefab)
         {
             PipePortalManager existing = instancedPipe.GetComponent<PipePortalManager>();

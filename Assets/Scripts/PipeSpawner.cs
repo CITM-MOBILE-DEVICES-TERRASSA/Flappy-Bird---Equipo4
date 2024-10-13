@@ -5,7 +5,8 @@ public class PipeSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject pipe;
     [SerializeField] private GameObject pipePortals; // Asegurate de que tenga el componente correcto!
-    
+    //[SerializeField] private GameObject coinPrefab;
+
     [SerializeField] private float offsetX;
     
     [SerializeField] private float spawnDelay;
@@ -44,7 +45,7 @@ public class PipeSpawner : MonoBehaviour
             }
             if (Random.Range(0, 2) == 1)
             {
-                pipeBuilder.AddPortals(pipePortals);
+                pipeBuilder.AddPortals(pipePortals); //add coinprefab
             }
 
             pipeBuilder.Build();
