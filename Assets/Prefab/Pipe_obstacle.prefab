@@ -29,11 +29,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1516270771512175690}
-  - {fileID: 5152620759979760520}
   - {fileID: 1302496425357954744}
+  - {fileID: 5152620759979760520}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7556470876605300220
@@ -152,8 +152,8 @@ GameObject:
   - component: {fileID: 8875440303675345151}
   - component: {fileID: 1192297579356469125}
   m_Layer: 0
-  m_Name: 'flappy bird sprite_pipe1 '
-  m_TagString: Untagged
+  m_Name: BotPipe
+  m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,7 +167,7 @@ Transform:
   m_GameObject: {fileID: 973534117799631305}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.1, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -216,10 +216,10 @@ SpriteRenderer:
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 795f9a0684eabb54b98c60bb418f53c0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.3, y: 1.57}
+  m_DrawMode: 1
+  m_Size: {x: 0.3, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -257,18 +257,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -1.5}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0.14999999}
+    pivot: {x: 0.5, y: 1}
     oldSize: {x: 0.3, y: 1.57}
-    newSize: {x: 0.3, y: 1.57}
+    newSize: {x: 0.3, y: 3}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 1.57}
+  m_Size: {x: 0.3, y: 3}
   m_EdgeRadius: 0
 --- !u!50 &1192297579356469125
 Rigidbody2D:
@@ -310,8 +310,8 @@ GameObject:
   - component: {fileID: 2149077481045818350}
   - component: {fileID: 8968486339313749132}
   m_Layer: 0
-  m_Name: flappy bird sprite_pipe1  (1)
-  m_TagString: Untagged
+  m_Name: TopPipe
+  m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -324,8 +324,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4446313285662587908}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 1.1, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -376,8 +376,8 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.3, y: 1.57}
+  m_DrawMode: 1
+  m_Size: {x: 0.3, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -415,18 +415,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -1.5}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0.14999999}
+    pivot: {x: 0.5, y: 1}
     oldSize: {x: 0.3, y: 1.57}
-    newSize: {x: 0.3, y: 1.57}
+    newSize: {x: 0.3, y: 3}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 1.57}
+  m_Size: {x: 0.3, y: 3}
   m_EdgeRadius: 0
 --- !u!50 &8968486339313749132
 Rigidbody2D:

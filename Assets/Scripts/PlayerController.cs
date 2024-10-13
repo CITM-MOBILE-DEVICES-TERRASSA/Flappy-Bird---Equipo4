@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public static event Action OnPlayerDeath;
     public static event Action OnPointObtained;
     public static event Action OnJumpButtonDown;
+    public static event Action<Vector3> OnPortalEnter;
 
     [SerializeField] private AudioClip deathClip;
     [SerializeField] AudioClip pointSound_;
@@ -93,6 +94,17 @@ public class PlayerController : MonoBehaviour
         }
 
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Portal"))
+        {
+            //Move all pipes to the left, simulating a teleportation (bird still doesn't move)
+            // BAD DESIGN CHOICE, DONE IN A RUSH
+            Vector3 displacement = new Vector3(-5.5f, 0, 0);
+            OnPortalEnter?.Invoke(displacement);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)

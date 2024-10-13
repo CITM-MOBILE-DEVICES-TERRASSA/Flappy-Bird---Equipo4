@@ -45,9 +45,10 @@ public class PipeSpawner : MonoBehaviour
             }
             if (Random.Range(0, 2) == 1)
             {
-                pipeBuilder.AddPortals(pipePortals); //add coinprefab
+                pipeBuilder.AddPortals(pipePortals);
             }
 
+            
             pipeBuilder.Build();
 
         }
