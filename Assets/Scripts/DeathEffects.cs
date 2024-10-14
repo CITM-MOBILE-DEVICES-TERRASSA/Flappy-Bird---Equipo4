@@ -15,9 +15,9 @@ public class DeathEffects : MonoBehaviour
 
     public void DeathEf()
     {
-        // Iniciar la corrutina para ralentizar el juego después de que las partículas terminen.
+        // Iniciar la corrutina para ralentizar el juego despuï¿½s de que las partï¿½culas terminen.
         StartCoroutine(HandleDeathSequence());
-        // Reproducir las partículas de muerte.
+        // Reproducir las partï¿½culas de muerte.
         deathParticles.Play();
 
        
@@ -25,11 +25,11 @@ public class DeathEffects : MonoBehaviour
 
     IEnumerator HandleDeathSequence()
     {
-        // Esperar hasta que las partículas terminen de reproducirse.
+        // Esperar hasta que las partï¿½culas terminen de reproducirse.
         yield return new WaitForSeconds(deathParticles.main.duration);
 
         // Ralentizar el juego.
-        Time.timeScale = 0.1f;
+        //Time.timeScale = 0.1f;
 
       
     }
